@@ -1,0 +1,31 @@
+package comparatorPractice;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Test {
+	public static void main(String[] args) {
+		
+		List<Student> studentsList = new ArrayList<Student>();
+		studentsList.add(new Student(2, "Ganesh", 75));
+		studentsList.add(new Student(1, "Rohan", 82));
+		studentsList.add(new Student(3, "Vasu", 66));
+		
+//		Collections.sort(studentsList, new IdComparator());
+//		
+//		System.out.println(studentsList);
+//		
+//		Collections.sort(studentsList, new NameComparator());
+//		System.out.println(studentsList);
+		System.out.println("Sorting based on marks");
+		Collections.sort(studentsList, (st1, st2) -> st1.marks - st2.marks);
+		System.out.println(studentsList);
+		
+		System.out.println("Sorting based on ID");
+		Comparator<Student> idComparator = (st1, st2) -> st1.id - st2.id;
+		Collections.sort(studentsList, idComparator);
+		System.out.println(studentsList);
+	}
+}

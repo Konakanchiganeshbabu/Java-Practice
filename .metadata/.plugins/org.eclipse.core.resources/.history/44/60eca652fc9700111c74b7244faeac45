@@ -1,0 +1,5 @@
+package com.hierarchicalinheritance;
+
+public class Car {
+
+}

@@ -1,0 +1,6 @@
+1791300510891	Delete element
+1791306127717	Extract method 'extracted'
+1791346407513	Extract method 'sortedOperations'
+1791351682131	Extract method 'distinctOperations'
+1791353529152	Extract method 'skipOperations'
+1791363036095	Extract method 'limitOperations'

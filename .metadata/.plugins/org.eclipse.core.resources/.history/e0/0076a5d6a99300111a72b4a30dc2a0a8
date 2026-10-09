@@ -1,0 +1,25 @@
+package com;
+
+public class Student {
+	String studentName;
+	int rollNum;
+	int idCardNum;
+	
+	public Student(String studentName, int rollNum, int idCardNum) {
+		this.studentName = studentName;
+		this.rollNum = rollNum;
+		this.idCardNum = idCardNum;
+	}
+	
+	public Student() {
+		
+	}
+	
+	void study() {
+		System.out.println("Student is studying...");
+	}
+	
+	void exam() {
+		System.out.println(studentName + " is writing exam");
+	}
+}

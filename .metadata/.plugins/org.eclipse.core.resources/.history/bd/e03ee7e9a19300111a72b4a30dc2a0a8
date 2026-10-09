@@ -1,0 +1,15 @@
+package com;
+
+public class Student {
+	String studentName;
+	int rollNum;
+	int idCardNum;
+	
+	void study() {
+		System.out.println("Student is studying...");
+	}
+	
+	void exam() {
+		System.out.println(studentName + " is writing exam");
+	}
+}

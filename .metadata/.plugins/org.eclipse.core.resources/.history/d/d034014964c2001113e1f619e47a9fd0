@@ -1,0 +1,26 @@
+package com;
+
+import java.util.Scanner;
+
+public class Palindrome {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the name : ");
+		String name = sc.nextLine();
+		
+		System.out.println(isPalindrom(name));
+	}
+	
+	static boolean isPalindrom(String name) {
+		String rev = "";
+		for(int i=name.length()-1; i>=0; i--) {
+			rev += String.valueOf(name.charAt(i));
+		}
+		
+		if(name.equals(rev)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+}

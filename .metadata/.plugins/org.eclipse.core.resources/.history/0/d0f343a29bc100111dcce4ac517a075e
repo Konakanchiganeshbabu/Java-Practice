@@ -1,0 +1,24 @@
+package com.fi;
+
+public class Test {
+	public static void main(String[] args) {
+		
+		//Traditional Way
+		Vehicle bike = new Bike();
+		
+		
+		//anonymous way
+		Vehicle car = new Vehicle() {
+			@Override
+			public void start() {
+				System.out.println("Car Started...");
+				
+			}
+		};
+		
+		
+		//using lambda
+		Vehicle lorry = () -> System.out.println("Lorry Started..");
+		lorry.start();
+	}
+}

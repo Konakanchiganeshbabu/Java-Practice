@@ -1,0 +1,12 @@
+package com.fi2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test {
+	public static void main(String[] args) {
+		List<Student> studentsList = new ArrayList<Student>();
+		studentsList.add(new Student(1, "Ganesh", 72));
+		
+	}
+}

@@ -1,0 +1,18 @@
+package mapspractice;
+
+import java.util.HashMap;
+
+public class MapsPractice1 {
+	public static void main(String[] args) {
+		
+		HashMap h = new HashMap();
+		h.put(1, "ganesh");
+		h.put(2, "abc");
+		h.put(3, 12);
+		h.put(4, true);
+		h.put(5, null);
+		h.put(6, null);
+		
+		System.out.println(h);
+	}
+}

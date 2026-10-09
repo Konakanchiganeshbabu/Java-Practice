@@ -1,0 +1,26 @@
+package com;
+
+public class Student {
+	static String clgName = "XYZ";
+	String name;
+	int age;
+	
+	void display() {
+		System.out.println(clgName);
+	}
+	
+	static void hi() {
+		clgName = "Abc";
+		System.out.println(Student.clgName);
+		System.out.println("Hi...");
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		hi();
+		Student s = new Student();
+		s.display();
+	}
+	
+}

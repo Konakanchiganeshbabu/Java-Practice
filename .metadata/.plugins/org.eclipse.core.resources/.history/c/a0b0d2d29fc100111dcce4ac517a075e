@@ -1,0 +1,8 @@
+package com.methods;
+
+public class Test {
+	public static void main(String[] args) {
+		SBHBranch1 branch1 = new SBHBranch1();
+		System.out.println(branch1.getDailyWithdrawlLimt());
+	}
+}

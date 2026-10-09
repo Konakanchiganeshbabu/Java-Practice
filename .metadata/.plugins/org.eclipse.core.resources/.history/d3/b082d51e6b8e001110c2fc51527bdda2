@@ -1,0 +1,78 @@
+package practicecom;
+
+public class Student {
+	long studentId;
+	String name;
+	int age;
+	String course;
+	String collegeName;
+	double cgpa;
+	String email;
+	String phoneNumber;
+	double attendancePercentage;
+	boolean isPlaced;
+	
+	void study() {
+		System.out.println(name + " Is studying...");
+	}
+	
+	void attendClass(boolean res) {
+		if (res){
+			System.out.println(name + " Attended class");
+		}else {
+			System.out.println(name + " Not Attended class");
+		}
+	}
+	
+	void submitAssignment(boolean res) {
+		if (res){
+			System.out.println(name + " is submitted the assignment");
+		}else {
+			System.out.println(name + " is not submitted the assignment");
+		}
+	}
+	
+	void writeExam() {
+		System.out.println(name + " Is writing the exam...");
+	}
+	
+	void displayDetails() {
+		System.out.println("name : " + name);
+		System.out.println("ID : " + studentId);
+		System.out.println("Age : " + age);
+		System.out.println("Course : " + course);
+		System.out.println("College Name : " + collegeName);
+		System.out.println("CGPA : " + cgpa);
+		System.out.println("Email : " + email);
+		System.out.println("Phone Number : " + phoneNumber);
+		System.out.println("Attendance : " + attendancePercentage);
+		System.out.println("Is Placed : " + isPlaced);
+	}
+	
+	
+	
+	void updateCGPA(double diffGpa) {
+		cgpa = cgpa + diffGpa;
+	}
+	
+	void updatePhoneNumber(String newPhoneNum) {
+		phoneNumber = newPhoneNum;
+	}
+	
+	void applyForPlacement(boolean res) {
+		if (res) {
+		    System.out.println(name + " applied for placement.");
+		} else {
+		    System.out.println(name + " did not apply for placement.");
+		}
+	}
+	
+	void payFee(boolean res){
+		if (res) {
+		    System.out.println(name + " Paid the fee");
+		} else {
+		    System.out.println(name + " Not paid the fee");
+		}
+	}
+
+}

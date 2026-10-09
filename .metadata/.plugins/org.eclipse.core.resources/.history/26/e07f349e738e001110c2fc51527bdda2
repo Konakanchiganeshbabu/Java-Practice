@@ -1,0 +1,29 @@
+package practicecom;
+
+public class Test1 {
+	
+	public static void main(String[] args) {
+		Student student1 = new Student();
+		student1.name = "Ganesh";
+		student1.studentId = 072;
+		student1.age = 22;
+		student1.course = "CSE";
+		student1.collegeName = "Srm University";
+		student1.cgpa = 7.912;
+		student1.email = "ganesh123@gmail.com";
+		student1.phoneNumber = "123456789";
+		student1.attendancePercentage = 91.2;
+		student1.isPlaced = false;
+		
+		student1.study();
+		student1.attendClass(true);
+		student1.submitAssignment(true);
+		student1.writeExam();
+		student1.displayDetails();
+		student1.updateCGPA(2);
+		student1.updatePhoneNumber("939521222");
+		student1.applyForPlacement(true);
+		student1.payFee(true);
+	}
+
+}

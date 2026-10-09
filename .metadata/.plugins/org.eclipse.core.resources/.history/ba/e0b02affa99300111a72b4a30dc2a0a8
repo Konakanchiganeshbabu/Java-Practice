@@ -1,0 +1,15 @@
+package com;
+
+public class Test {
+	public static void main(String[] args) {
+		Student s1 = new Student();
+		Student s2 = new Student();
+		
+		System.out.println(s1.clgName);
+		s2.display();
+		
+		s1.clgName = "XYZ";
+		System.out.println(s1.clgName);
+		s2.display();
+	}
+}

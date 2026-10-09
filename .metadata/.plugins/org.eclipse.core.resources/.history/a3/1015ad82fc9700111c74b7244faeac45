@@ -1,0 +1,12 @@
+package com.hierarchicalinheritance;
+
+public class Test {
+	public static void main(String[] args) {
+		Car c = new Car();
+		c.brand = "TATA";
+		c.speed = 270;
+		c.fuelType = "diesel";
+		
+		c.displayCarDetails();
+	}
+}

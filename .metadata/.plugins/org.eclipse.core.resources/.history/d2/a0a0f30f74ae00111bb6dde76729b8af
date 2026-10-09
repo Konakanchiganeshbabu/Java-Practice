@@ -1,0 +1,13 @@
+package mapspractice;
+
+import java.util.HashMap;
+
+public class MapsPractice1 {
+	public static void main(String[] args) {
+		
+		HashMap h = new HashMap();
+		h.put(1, "ganesh");
+		
+		System.out.println(h);
+	}
+}

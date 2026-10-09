@@ -1,0 +1,45 @@
+package com;
+
+import java.util.Arrays;
+
+public class TwoSum {
+	public static void main(String[] args) {
+		int[] arr = {2, 1, 4, 9, 6, 5, 7, 3};
+		int target = 69;
+		
+		System.out.println(checkTwoSum(arr, target));
+		System.out.println(checkTwoSum2(arr, target));
+	}
+	
+	static boolean checkTwoSum(int[] arr, int target) {
+		int n = arr.length;
+		
+		for(int i=0; i<n-1; i++) {
+			for(int j=i+1; j<n; j++) {
+				if(arr[i] + arr[j] == target) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	static boolean checkTwoSum2(int[] arr, int target) {
+		
+		Arrays.sort(arr);
+		
+		int l = 0;
+		int r = arr.length-1;
+		while(l<r) {
+			int sum = arr[l] + arr[r];
+			if(sum == target) {
+				return true;
+			}else if(sum < target) {
+				l++;
+			}else {
+				r--;
+			}
+		}
+		return false;
+	}
+}

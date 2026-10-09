@@ -1,0 +1,8 @@
+package com.fi;
+
+public class Test {
+	public static void main(String[] args) {
+		Vehicle bike = new Bike();
+		bike.start();
+	}
+}

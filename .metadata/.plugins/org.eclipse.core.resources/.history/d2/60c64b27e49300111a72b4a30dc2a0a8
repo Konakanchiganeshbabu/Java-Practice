@@ -1,0 +1,22 @@
+package com;
+
+public class Student {
+	static String clgName;
+	String name;
+	int age;
+	
+	void display() {
+		System.out.println("College Name : " + clgName);
+	}
+	
+	static void hi() {
+		clgName = "Abc";
+		System.out.println(Student.clgName);
+		System.out.println("Hi...");
+	}
+	
+	public static void main(String[] args) {
+		hi();
+	}
+	
+}

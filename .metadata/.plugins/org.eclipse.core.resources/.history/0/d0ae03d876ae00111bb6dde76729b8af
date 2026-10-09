@@ -1,0 +1,19 @@
+package mapspractice;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapsPractice1 {
+	public static void main(String[] args) {
+		
+		HashMap<Integer, String> map = new HashMap<>();
+		map.put(1, null);
+		map.put(2, null);
+		map.put(3, "Ganesh");
+		map.put(4, "Sai");
+		map.put(5, "Keerthy");
+		map.put(5, "Vasu");	
+		
+		System.out.println(map);
+	}
+}

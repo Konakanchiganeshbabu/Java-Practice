@@ -1,0 +1,131 @@
+package com;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ThreeSum {
+	public static void main(String[] args) {
+		int[] arr = {2, 1, 4,3, 9, 6, 5, 7, 3, 68};
+		int target = 66;
+		
+		int[] arr2 = {-1, 0, 1, 2, -1, -4};
+		
+		System.out.println(checkThreeSum(arr, target));
+		System.out.println(ThreeSum.checkThreeSum2(arr, target));
+		System.out.println(ThreeSum.checkThreeSum3(arr2));
+		System.out.println(ThreeSum.checkThreeSum4(arr2));
+	}
+	
+	//982867
+	//brute force approach
+	static boolean checkThreeSum(int[] arr, int target) {
+		int n = arr.length;
+		for(int i=0; i<n-2; i++) {
+			for(int j=i+1; j<n-1; j++) {
+				for(int k=j+1; k<n; k++) {
+					if(arr[i] + arr[j] + arr[k] == target) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+	//using 2 pointer technique
+	static boolean checkThreeSum2(int[] arr, int target) {
+		Arrays.sort(arr);
+		int n = arr.length;
+		
+		for(int i=0; i<n-2; i++) {
+			int l = i+1;
+			int r = n-1;
+			while(l < r) {
+				int sum = arr[i] + arr[l] + arr[r];
+				if(sum == target) {
+					return true;
+				}else if(sum < target) {
+					l++;
+				}else {
+					r--;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	
+	//return list of elements equal to zero along with duplicates 
+	static List<List<Integer>> checkThreeSum3(int[] arr){
+		Arrays.sort(arr);
+		List<List<Integer>> res = new ArrayList<>();
+		int n = arr.length;
+		for(int i=0; i<n-2; i++) {
+			int l = i+1;
+			int r = n-1;
+			int need = 0 - arr[i];
+			while(l < r) {
+				int sum = arr[l] + arr[r];
+				if(sum == need) {
+					List<Integer> temp = new ArrayList<>();
+					temp.add(arr[i]);
+					temp.add(arr[l]);
+					temp.add(arr[r]);
+					res.add(temp);
+					l++;
+					r--;
+				}else if(sum < need) {
+					l++;
+				}else {
+					r--;
+				}
+			}
+		}
+		return res;
+	}
+	
+	
+	//return unique list of element that sum equals to target sum
+	static List<List<Integer>> checkThreeSum4(int[] arr){
+		List<List<Integer>> res = new ArrayList<>();
+		int n = arr.length;
+		for(int i=0; i<n-2; i++) {
+			if(i > 0 && arr[i] == arr[i-1]) {
+				continue;
+			}
+			int need = 0 - arr[i];
+			int l = i + 1;
+			int r = n - 1;
+			while(l < r) {
+				int sum = arr[l] + arr[r];
+				if(sum == need) {
+					List<Integer> triplet = new ArrayList<>();
+					triplet.add(arr[i]);
+					triplet.add(arr[l]);
+					triplet.add(arr[r]);
+					res.add(triplet);
+					l++;
+					r--;
+					
+					while(l < r && arr[l] == arr[l-1]) {
+						l++;
+					}
+					
+					while(l < r && arr[r] == arr[r+1]) {
+						r--;
+					}
+				}else if(sum < need) {
+					l++;
+				}else {
+					r--;
+				}
+			}
+		}
+		
+		return res;
+	}
+}

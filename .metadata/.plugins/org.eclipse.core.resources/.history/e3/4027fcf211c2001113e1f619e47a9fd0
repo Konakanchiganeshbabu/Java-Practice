@@ -1,0 +1,161 @@
+package com.streams;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.fi2.Student;
+
+public class StreamsPractice1 {
+	public static void main(String[] args) {
+		List<Integer> nums = Arrays.asList(10,27, 12, 15,12,10,87,30, 20, 7, 6, 25,87, 80, 85, 30, 45, 43, 42);
+		List<String> names = Arrays.asList("Ganesh", "Ajay", "Akhil", "Arjun", "Vasu", "Ganesh", "Vasu");
+		List<StudentDetails> studentsList = new ArrayList<StudentDetails>();
+		studentsList.add(new StudentDetails(1, "Ganesh", 72));
+		studentsList.add(new StudentDetails(2, "Vasavi", 68));
+		studentsList.add(new StudentDetails(3, "Arjun", 90));
+		studentsList.add(new StudentDetails(4, "Mahesh", 54));
+		studentsList.add(new StudentDetails(5, "Raju", 62));
+		
+		String name = "FRONTLINESEDUTECH";
+		
+		
+		distinctOperations(nums, names, name);
+	}
+
+
+
+
+
+	private static void distinctOperations(List<Integer> nums, List<String> names, String name) {
+		//Remove duplicate numbers
+		List<Integer> distinctNums = nums
+			.stream()
+			.distinct()
+			.sorted()
+			.collect(Collectors.toList());
+		
+		//Get Distinct names
+		List<String> distinctNames = names
+			.stream()
+			.distinct()
+			.toList();
+		
+		//Distinct first characters
+		String firstChars = name
+			.chars()
+			.distinct()
+			.mapToObj(c -> String.valueOf((char) c))
+			.collect(Collectors.joining());
+		
+		
+		System.out.println(distinctNums);
+		System.out.println(distinctNames);
+		System.out.println(firstChars);
+	}
+
+
+
+
+
+	private static void sortedOperations(List<Integer> nums, List<String> names, List<StudentDetails> studentsList) {
+		//print nums in ascending order
+		List<Integer> ascNums = nums
+			.stream()
+			.sorted()
+			.toList();
+		
+		//print nums in descending order
+		List<Integer> descNums = nums
+			.stream()
+			.sorted(Comparator.reverseOrder())
+			.toList();
+		
+		//sort names in Asc order
+		List<String> ascNames = names
+			.stream()
+			.sorted()
+			.collect(Collectors.toList());
+		
+		//sort students by marks
+		List<StudentDetails> list = studentsList
+			.stream()
+			.sorted((st1, st2) -> Integer.compare(st1.getMarks(), st2.getMarks()))
+			.toList();
+		
+		List<StudentDetails> list2 = studentsList
+				.stream()
+				.sorted((st1, st2) -> st1.getMarks() - st2.getMarks())
+				.toList();
+		
+		System.out.println(ascNums);
+		System.out.println(descNums);
+		System.out.println(ascNames);
+		System.out.println(list);
+		System.out.println(list2);
+	}
+	
+
+	private static void filterOperationsPractice(List<Integer> nums, List<String> names, List<StudentDetails> studentsList) {
+		//Find even nums
+		List<Integer> evenNums = nums
+			.stream()
+			.filter(num -> num%2==0)
+			.collect(Collectors.toList());
+		
+		//Find odd nums
+		List<Integer> oddNums = nums
+			.stream()
+			.filter(num -> num%2 != 0)
+			.toList();
+		
+		//Get nums greater than 25
+		List<Integer> numsGreaterThan25 = nums
+			.stream()
+			.filter(num -> num > 25)
+			.collect(Collectors.toList());
+		
+		//Get the name starting with letter A
+		List<String> namesStartWithA1 = names
+			.stream()
+			.filter(name -> name.startsWith("A"))
+			.collect(Collectors.toList());
+		
+		List<String> namesStartWithA2 = names
+				.stream()
+				.filter(name -> String.valueOf(name.charAt(0)).equals("A"))
+				.collect(Collectors.toList());
+		
+		//Get the names that not starts with A
+		List<String> namesNotStartWithA1 = names
+				.stream()
+				.filter(name -> name.charAt(0) != 'A')
+				.collect(Collectors.toList());
+		
+		//Get the StudentsDetails whose marks are above 70
+		List<StudentDetails> studentsGreaterThan70 = studentsList
+			.stream()
+			.filter(student -> student.getMarks() > 70)
+			.toList();
+		
+		//Get the Student Names whose marks are less than 70
+				List<String> studentNamesLessThan70 = studentsList
+					.stream()
+					.filter(student -> student.getMarks() < 70)
+					.map(student -> student.getName())
+					.toList();
+		
+		
+		System.out.println(evenNums);
+		System.out.println(oddNums);
+		System.out.println(numsGreaterThan25);
+		System.out.println(namesStartWithA1);
+		System.out.println(namesStartWithA2);
+		System.out.println(namesNotStartWithA1);
+		System.out.println(studentsGreaterThan70);
+		System.out.println(studentNamesLessThan70);
+	}
+}

@@ -1,0 +1,53 @@
+package com;
+
+import java.util.Arrays;
+
+public class ThreeSum {
+	public static void main(String[] args) {
+		int[] arr = {2, 1, 4,0, 9, 6, 5, 7, 3, 68};
+		int target = 69;
+		
+		System.out.println(checkThreeSum(arr, target));
+		System.out.println(ThreeSum.checkThreeSum2(arr, target));
+	}
+	
+	//982867
+	//brute force approach
+	static boolean checkThreeSum(int[] arr, int target) {
+		int n = arr.length;
+		for(int i=0; i<n-2; i++) {
+			for(int j=i+1; j<n-1; j++) {
+				for(int k=j+1; k<n; k++) {
+					if(arr[i] + arr[j] + arr[k] == target) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+	//using 2 pointer technique
+	static boolean checkThreeSum2(int[] arr, int target) {
+		Arrays.sort(arr);
+		int n = arr.length;
+		
+		for(int i=0; i<n-2; i++) {
+			int l = i+1;
+			int r = n-1;
+			while(l < r) {
+				int sum = arr[i] + arr[l] + arr[r];
+				if(sum == target) {
+					return true;
+				}else if(sum < target) {
+					l++;
+				}else {
+					r++;
+				}
+			}
+		}
+		
+		return false;
+	}
+}
